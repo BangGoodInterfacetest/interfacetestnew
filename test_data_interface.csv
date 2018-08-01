@@ -1,0 +1,134 @@
+case_id,http_method,request_name,request_url,request_param,test_method,test_desc,expectedresults,interface_name
+1,POST,EWMS,/Admin/User/Login,"{
+""UserName"":""dengzhifeng@sellercube.cn"",
+""Password"":""123"",
+""Identity"":""AC4D2B65E93A39F61F760F375B18212"",
+""ValidateCode"":"""",
+""RememberMe"":""true""
+}",EWMS,测试正常登陆,,Login
+2,POST,EWMS,/Admin/OperateBarcodeLog,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""OperateBarCodeLogId desc"",
+""search"":""``op|BarCode`UserName`OperatedDate|A000004746774797979`黄春容`2018-2-23 0:00|eq`eq`GreatEq"",
+""rowCount"":""0""
+}",EWMS,首页查询,,OperateBarcodeLog
+3,POST,EWMS,/Admin/OperateBarcodeLog,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""OperateBarCodeLogId desc"",
+""search"":""`````op`op|BarCode`UserName`LogType`OperateType`SubLogType`OperatedDate`ProcessCenterId|A000004746774797979`黄春容`26`2`1400002`2018-2-23 0:00`722|eq`eq`eq`eq`eq`GreatEq`eq"",
+""rowCount"":""1""
+}",EWMS,首页查询,,OperateBarcodeLog
+4,POST,EWMS,/Admin/OperateBarCodeLog/SyncOperateBarCodeLog,"{""ids"":""3655110""
+}",EWMS,首页查询-单号历史回传,,SyncOperateBarCodeLog
+5,POST,EWMS,/Admin/ExceptionDataFetch,"{
+""pageIndex"":""1"",
+""pageSize"":""10000"",
+""orderBy"":""Fail_Count desc"",
+""search"":""|||"",
+""rowCount"":""1""
+}",EWMS,数据回传监控查询,,ExceptionDataFetch
+6,POST,EWMS,/Admin/SyncExecuteRecord,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""StartTime desc"",
+""search"":""|SyncExecuteRecordType|41|eq"",
+""rowCount"":""0""
+}",EWMS,数据下行-同步执行记录列表查询,,SyncExecuteRecord
+7,POST,EWMS,/Admin/SyncExecuteRecordItem,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""OriginTableName desc"",
+""search"":""|SyncExecuteRecordId|1899614|eq"",
+""rowCount"":""0""
+}",EWMS,数据下行-同步记录明细列表查询,,SyncExecuteRecordItem
+8,POST,,/Admin/SyncExecuteProduct,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""CreatedDate desc"",
+""search"":""|||"",
+""rowCount"":""0""
+}",,待下行产品--查询,,SyncExecuteProduct
+9,POST,,/Admin/SyncExecuteProduct/Add,"{
+""ProductId"":""535707"",
+""PropertyId"":""0"",
+""OriginTableType"":""8""
+}",,待下行产品--新增,,Add
+10,POST,,/Admin/SyncExecuteProduct/SyncProduct,"{""ids"":""121313""
+}",,待下行产品--同步产品,,SyncProduct
+11,POST,,/Admin/SyncUploadRackStocks ,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""SyncUploadRackStockId desc"",
+""search"":""|||"",
+""rowCount"":""0""
+}",,库存回传-查询,,SyncUploadRackStocks
+12,GET,,/Admin/SyncUploadRackStocks/ExecuteRackStocksUpload?id=39256393,"{""id"":""39256393""
+}",,库存回传-库存回传,,ExecuteRackStocksUpload
+13,POST,,Admin/SyncUploadRackStocks/SaveRackStocksUpload,"{""SyncUploadRackStockIds"":""39256393""
+}",,库存回传-库存回传,,SaveRackStocksUpload
+14,POST,,/Admin/SyncUploadPurchasePackage,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""SyncUploadPurchasePackageId desc"",
+""search"":""s|CreatedDate|2018-02-26 0:00|GreatEq"",
+""rowCount"":""0""
+}",,流转单回传-查询,,SyncUploadPurchasePackage
+15,POST,,/Admin/SyncUploadPurchasePackage/UploadPackages ,"{""ids"":""10777""
+}",,流转单回传,,UploadPackages
+16,POST,,/Admin/SyncUploadProductShift,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""SyncUploadProductShiftId desc"",
+""search"":""s|CreatedDate|2018-02-26 0:00|GreatEq"",
+""rowCount"":""0""
+}",,调拨单回传-查询,,SyncUploadProductShift
+17,POST,,/Admin/SyncUploadProductShift/UploadProductShifts,"{""ids"":""11497""
+}",,调拨单回传-查询,,UploadProductShifts
+18,POST,,/Admin/SyncUploadProductShiftBatch,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""SyncUploadProductShiftBatchId desc"",
+""search"":""|||"",
+""rowCount"":""0""
+}",,调拨批次回传-查询,,SyncUploadProductShiftBatch
+19,POST,,/Admin/SyncUploadProductShiftBatch/UploadProductShiftBatchs,"{""ids"":""4593""
+}",,调拨批次回传,,UploadProductShiftBatchs
+,POST,,/Admin/SyncUploadRepair,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""SyncUploadRepairId desc"",
+""search"":""``s`s`s|RepairCode`ProductCode`SyncUploadStatus`CreatedDate`CreatedDate|REP-6-7-20180424-0007`SKU575343`1`2018-04-03 0:00`2018-5-4 20:30|eq`eq`eq`GreatEq`LessEq"",
+""rowCount"":""0""
+}",,返修单回传-搜索,,SyncUploadRepair
+,POST,,/Admin/SyncUploadRepair/UploadRepairs,"{""ids"":""59""
+}",,返修单回传,,
+,POST,,/Admin/SyncUploadSampleOrder,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""SyncUploadSampleOrderId desc"",
+""search"":""sos`sos`sos|OrderCode`SyncUploadStatus`CreatedDate|A00033171114001A`0`2018-04-03 0:00|eq`eq`GreatEq"",
+""rowCount"":""0""
+}",,样品单回传-搜索,,
+,POST,,/Admin/SyncUploadSampleOrder/UploadSampleOrders,"{""ids"":""744""
+}",,样品单回传,,
+,POST,,/Admin/SyncUploadOrderBatch,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""SyncUploadOrderBatchId desc"",
+""search"":""`s`s|OrderBatchCode`SyncUploadStatus`CreatedDate|LP201712289009`-1`2017-1-3 0:00|eq`eq`GreatEq"",
+""rowCount"":""0""
+}",,发货批次单回传-搜索,,
+,POST,,/Admin/SyncUploadOrderBatch/UploadOrderBatchs,"{""ids"":""388""
+}",,发货批次单回传,,
+,POST,,/Admin/OrderBatch,"{
+""pageIndex"":""1"",
+""pageSize"":""10"",
+""orderBy"":""CreatedDate desc"",
+""`|OrderBatchCode`ComputeStatus|MP201804250011`1|like`eq"",
+""rowCount"":""0""
+}",,配货批次处理-搜索,,
+,POST,,,,,,,
+,POST,,,,,,,
+,POST,,,,,,,

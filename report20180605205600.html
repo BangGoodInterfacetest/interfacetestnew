@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><title>test_report_page</title>
+</head>
+<body><h1 align="center">test report</h1>
+<p>测试总耗时：0:00:07.631000</p>
+<p>测试用例数：8&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp成功用例数：1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp失败用例数：1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp出错用例数：6</p>
+<table cellpadding="1" cellspacing="0" class="table" border="1"><tr><td bgcolor="#ABABAB" align="center">用例ID</td>
+<td bgcolor="#ABABAB" align="center">HTTP方法</td>
+<td bgcolor="#ABABAB" align="center">系统名称</td>
+<td bgcolor="#ABABAB" align="center">接口名称</td>
+<td bgcolor="#ABABAB" align="center">测试描述</td>
+<td bgcolor="#ABABAB" align="center">测试结果</td>
+<td bgcolor="#ABABAB" align="center">失败原因</td>
+<td bgcolor="#ABABAB" align="center">请求URL</td>
+<td bgcolor="#ABABAB" align="center">请求参数/数据</td>
+
+</tr>
+<tr><td align="center">1</td>
+<td>POST</td>
+<td>EWMS</td>
+<td align="center">Login</td>
+<td align="center">测试正常登陆</td>
+<td>Pass</td>
+<td></td>
+<td align="center">/Admin/User/Login</td>
+<td>Password=123&RememberMe=true&UserName=dengzhifeng%40sellercube.cn&Identity=AC4D2B65E93A39F61F760F375B18212&ValidateCode=</td>
+
+</tr>
+<tr><td align="center">2</td>
+<td>POST</td>
+<td>EWMS</td>
+<td align="center">OperateBarcodeLog</td>
+<td align="center">首页查询</td>
+<td>Error</td>
+<td>HTTP Error 500: Internal Server Error</td>
+<td align="center">/Admin/OperateBarcodeLog</td>
+<td>{
+"pageIndex":"1",
+"pageSize":"10",
+"orderBy":"OperateBarCodeLogId desc",
+"search":"``op|BarCode`UserName`OperatedDate|A000004746774797979`(黄春容)`2018-2-23 0:00|eq`eq`GreatEq",
+"rowCount":"0"
+}</td>
+
+</tr>
+<tr><td align="center">3</td>
+<td>POST</td>
+<td>EWMS</td>
+<td align="center">OperateBarcodeLog</td>
+<td align="center">首页查询</td>
+<td>Error</td>
+<td>HTTP Error 500: Internal Server Error</td>
+<td align="center">/Admin/OperateBarcodeLog</td>
+<td>{
+"pageIndex":"1",
+"pageSize":"10",
+"orderBy":"OperateBarCodeLogId desc",
+"search":"`````op`op|BarCode`UserName`LogType`OperateType`SubLogType`OperatedDate`ProcessCenterId|A000004746774797979`黄春容`26`2`1400002`2018-2-23 0:00`722|eq`eq`eq`eq`eq`GreatEq`eq",
+"rowCount":"1"
+}</td>
+
+</tr>
+<tr><td align="center">4</td>
+<td>POST</td>
+<td>EWMS</td>
+<td align="center">SyncOperateBarCodeLog</td>
+<td align="center">首页查询-单号历史回传</td>
+<td>Error</td>
+<td>HTTP Error 404: Not Found</td>
+<td align="center">/Admin/OperateBarCodeLog/SyncOperateBarCodeLog</td>
+<td>pageSize=10&orderBy=0</td>
+
+</tr>
+<tr><td align="center">5</td>
+<td>POST</td>
+<td>EWMS</td>
+<td align="center">ExceptionDataFetch</td>
+<td align="center">数据回传监控查询</td>
+<td>Error</td>
+<td>HTTP Error 500: Internal Server Error</td>
+<td align="center">/Admin/ExceptionDataFetch</td>
+<td>{
+"pageIndex":"1",
+"pageSize":"10000",
+"orderBy":"Fail_Count desc",
+"search":"|||",
+"rowCount":"1"
+}</td>
+
+</tr>
+<tr><td align="center">6</td>
+<td>POST</td>
+<td>EWMS</td>
+<td align="center">SyncExecuteRecord</td>
+<td align="center">数据下行-同步执行记录列表查询</td>
+<td>Error</td>
+<td>HTTP Error 500: Internal Server Error</td>
+<td align="center">/Admin/SyncExecuteRecord</td>
+<td>{
+"pageIndex":"1",
+"pageSize":"10",
+"orderBy":"StartTime desc",
+"search":"|SyncExecuteRecordType|41|eq",
+"rowCount":"0"
+}</td>
+
+</tr>
+<tr><td align="center">7</td>
+<td>POST</td>
+<td>EWMS</td>
+<td align="center">SyncExecuteRecordItem</td>
+<td align="center">数据下行-同步记录明细列表查询</td>
+<td>Error</td>
+<td>HTTP Error 500: Internal Server Error</td>
+<td align="center">/Admin/SyncExecuteRecordItem</td>
+<td>{
+"pageIndex":"1",
+"pageSize":"10",
+"orderBy":"OriginTableName desc",
+"search":"|SyncExecuteRecordId|1899614|eq",
+"rowCount":"0"
+}</td>
+
+</tr>
+<tr><td align="center">9</td>
+<td>POST</td>
+<td>EWMS</td>
+<td align="center">DelayLoad</td>
+<td align="center">test</td>
+<td>Fail</td>
+<td>预期结果参数['case_id']无对应返回参数;
+</td>
+<td align="center">/api/home/DelayLoad</td>
+<td>{"pageIndex":"1","pageSize":"0","orderBy":"OperateBarCodeLogId+desc","search":"%60%60op%60op%7CBarCode%60UserName%60OperatedDate%60OperatedDate%7C111%601111%602017-12-24+0%3A00%602018-1-25+19%3A40%7Ceq%60eq%60GreatEq%60LessEq","rowCount":"0"}</td>
+
+</tr>
+</table>
+</body>
+</html>
