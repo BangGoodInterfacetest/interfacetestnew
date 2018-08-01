@@ -468,4 +468,4 @@ class  RunCase:
                  runner.run(test_suite)
                  db1_cursor.close()
 
-                 测试git
+                 测试
