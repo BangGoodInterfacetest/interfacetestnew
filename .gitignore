@@ -1,0 +1,10 @@
+logs/
+.idea/
+.cache/
+*.pyc
+db_config.ini
+http_conf.ini
+run_case_config.ini
+.docx
+.doc
+.txt
