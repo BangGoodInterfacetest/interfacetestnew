@@ -126,7 +126,6 @@ print(zz1,zz2)'''
 '''import mysql.connector
 try:
     conn = mysql.connector.connect(host='127.0.0.1', port='3306', user='root', password='testdb', database='test', charset='utf8')
-    print("conn",conn)
     cur=conn.cursor()#buffered=True
     print("cur",cur)
     cur.execute('SELECT * FROM test_data where case_id in(1,2,3)')#.fetchone()

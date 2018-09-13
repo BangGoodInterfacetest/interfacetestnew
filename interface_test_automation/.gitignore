@@ -1,0 +1,15 @@
+chengqian.py
+PythonLearn-1.py
+PythonLearn-1.py
+testzzj.py
+zzjtest2.py
+zzj3.py
+.idea/
+.cache/
+*.pyc
+db_config.ini
+http_conf.ini
+run_case_config.ini
+.docx
+.doc
+.txt
